@@ -1,5 +1,6 @@
 chai.use(require("chai-uuid"));
-///////////////////////////////////////////////////////////////////////////////#1
+
+//////// #1
 describe("httpbin tests get image", () => {
   const request = {
     method: "GET",
@@ -17,7 +18,8 @@ describe("httpbin tests get image", () => {
     });
   });
 });
-////////////////////////////////////////////////////////////////////////////////#2
+
+//////// #2
 describe("httpbin tests headers", () => {
   const request = {
     method: "GET",
@@ -35,7 +37,7 @@ describe("httpbin tests headers", () => {
   });
 });
 
-/////////////////////////////////////////////////////////////////////////////#3
+//////// #3
 describe("httpbin tests POST", () => {
   it("test random ids", () => {
     for (let i = 0; i < 5; i++) {
@@ -68,8 +70,7 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
-/////////////////////////////////////////////////////////////////////////////////#4 delete methopd get
-
+//////// #4
 describe("httpbin tests wrong method", () => {
   const request = {
     method: "GET",
@@ -87,7 +88,7 @@ describe("httpbin tests wrong method", () => {
   });
 });
 
-////////////////////////////////////////////////////////////////////////////////////#5 get user agent
+//////// #5
 describe("httpbin tests gest user agent", () => {
   const request = {
     method: "GET",
@@ -102,7 +103,7 @@ describe("httpbin tests gest user agent", () => {
   });
 });
 
-///////////////////////////////////////////////////////////////////////////////////#6 spr format odpowiedzi
+//////// #6
 describe("httpbin tests check response format", () => {
   const request = {
     method: "GET",
@@ -117,7 +118,7 @@ describe("httpbin tests check response format", () => {
   });
 });
 
-/////////////////////////////////////////////////////////////////#7
+//////// #7
 describe("httpbin tests correct login details", () => {
   const request1 = {
     method: "GET",
@@ -149,7 +150,7 @@ describe("httpbin tests correct login details", () => {
   });
 });
 
-////////////////////////////////////////////////////////////////////// #8 uuid
+//////// #8
 describe("httpbin tests check is response is valid uuid v4", () => {
   const request = {
     method: "GET",
@@ -162,7 +163,8 @@ describe("httpbin tests check is response is valid uuid v4", () => {
     });
   });
 });
-/////////////////////////////////////////#9
+
+//////// #9
 describe("delay", () => {
   const request = {
     method: "POST",
@@ -177,8 +179,7 @@ describe("delay", () => {
   });
 });
 
-/////////////////////////////////////////#10
-
+//////// #10
 describe("random response code, one of range <200,204>", () => {
   const request = {
     method: "PATCH",
