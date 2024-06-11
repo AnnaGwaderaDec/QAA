@@ -12,7 +12,7 @@ config:
         arrivalRate: 2
         name: Spike-post Cool-down
   payload:
-    path: "keywords.csv"
+    path: "data.csv"
     fields:
       - name: "country"
       - name: "timezone"
