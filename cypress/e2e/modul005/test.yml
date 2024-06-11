@@ -1,0 +1,36 @@
+config:
+  target: "https://nameday.abalin.net"
+  config:
+  phases:
+    - duration: 3
+      arrivalRate: 2
+      name: Spike-pre Warm-Up
+      - duration: 10
+        arrivalRate: 20
+        name: Spike test
+      - duration: 300
+        arrivalRate: 2
+        name: Spike-post Cool-down
+  payload:
+    path: "keywords.csv"
+    fields:
+      - name: "country"
+      - name: "timezone"
+  plugins:
+    ensure: {}
+  ensure:
+    thresholds:
+      - http.response_time.p95: 1000
+    conditions:
+      - expression: vusers.failed == 0
+      - expression: "http.request_rate >= 2 and http.response_time.max < 600"
+scenarios:
+  - name: Getting a resource
+    flow:
+      - get:
+          url: "{{ target }}/api/V1/today?country={{ country }}&timezone={{timezone}}"
+      - post:
+          url: "{{ target }}/api/V1/tomorrow"
+          json:
+            country: "{{ country }}"
+            timezone: "{{ timezone }}"
